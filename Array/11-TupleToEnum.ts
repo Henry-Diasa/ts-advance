@@ -1,3 +1,7 @@
+export {}
+import {FindIndex} from './10-FindIndex<T,E>'
+type TupleToEnum<T extends string[], K = false> = { readonly [k in T[number]]: K extends true ? FindIndex<T, k> : k }
+
 // 默认情况下，枚举对象中的值就是元素中某个类型的字面量类型
 type a1 = TupleToEnum<["MacOS", "Windows", "Linux"]>;
 // -> { readonly MacOS: "MacOS", readonly Windows: "Windows", readonly Linux: "Linux" }
