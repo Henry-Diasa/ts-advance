@@ -1,3 +1,11 @@
+
+export {} 
+
+
+export type OptionalKeys<T, K = keyof T> = K extends keyof T ? (
+  Omit<T, K> extends T ? K : never
+) : never
+
 type a1 = OptionalKeys<{
   foo: number | undefined;
   bar?: string;

@@ -1,5 +1,12 @@
 // 实现一个叫做 UnionToBooleanProps 的泛型，使得以下需求成立
+export {}
 
+type UnionToBooleanProps<T extends string, TT extends string = T> =
+    T extends any ?
+        { [k in Exclude<TT, T>]?: void } & { [k in T]: boolean; }
+        : never
+
+        
 type MessageStringType = "info" | "success" | "warning" | "error";
 type OneMessageTypes = UnionToBooleanProps<MessageStringType>;
 type Props = OneMessageTypes & { id: string };

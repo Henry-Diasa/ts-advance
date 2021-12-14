@@ -1,3 +1,8 @@
+export {} 
+import {OptionalKeys} from './1-OptionalKeys'
+type PickOptional<T> = Pick<T,OptionalKeys<T>>
+
+
 type a1 = PickOptional<{
   foo: number | undefined;
   bar?: string;

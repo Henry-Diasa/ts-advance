@@ -1,3 +1,5 @@
+export {}
+
 type obj1 = {
   el: string;
   age: number;
@@ -7,6 +9,7 @@ type obj2 = {
   el: HTMLElement;
   flag: boolean;
 };
+type Merge<T, K> = { [k in Exclude<keyof T, keyof K>]: T[k] } & K
 
 type obj3 = Merge<obj1, obj2>; // {el:HtmlElement,age:number,flag:boolean}
 

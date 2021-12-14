@@ -1,3 +1,8 @@
+export {} 
+import {OptionalKeys} from './1-OptionalKeys'
+
+export type RequiredKeys<T> = Exclude<keyof T, OptionalKeys<T>>
+
 type a1 = RequiredKeys<{
   foo: number | undefined;
   bar?: string;

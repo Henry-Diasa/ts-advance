@@ -1,3 +1,7 @@
+export {} 
+import {RequiredKeys} from './3-RequiredKeys'
+
+type PickRequired<T> = Pick<T, RequiredKeys<T>>
 type a1 = PickRequired<{
   foo: number | undefined;
   bar?: string;
